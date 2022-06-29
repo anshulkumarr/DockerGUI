@@ -1,0 +1,7 @@
+schedule==0.6.0
+numpy==1.21.5
+argparse
+opencv-python==4.6.0.66
+scipy==1.8.0
+imutils==0.5.4
+dlib==19.24.0
