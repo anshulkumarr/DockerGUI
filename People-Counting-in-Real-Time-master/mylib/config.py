@@ -7,7 +7,7 @@ MAIL = ''
 # Enter the ip camera url (e.g., url = 'http://191.138.0.100:8040/video')
 #url = 'http://192.168.0.154:6677/videofeed'
 #url = 'http://192.168.0.154:6677/videofeed.mjpg'
-url = 'rtsp://192.168.0.154:8080/h264_ulaw.sdp'
+url = 'rtsp://172.27.5.69:9001/h264_ulaw.sdp'
 
 # ON/OFF for mail feature. Enter True to turn on the email alert feature.
 ALERT = False
