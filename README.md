@@ -46,3 +46,23 @@
 `sudo docker kill <InstanceName/ID>; sudo docker rm <InstanceName/ID>`
 ### Terminate and remove all Instances
 `sudo docker kill $(sudo docker ps -q); sudo docker rm $(sudo docker ps -a -q)`
+
+
+****
+## Container ip-camera setup
+### Build
+* `cd DockerGUI`
+* `sudo docker build -t ip-camera .`
+### Run
+* `sudo docker run -d -p 5901:5901 -p 6901:6901 consol/ubuntu-xfce-vnc`
+* `sudo docker run -it --name ip_camera --net=host -e DISPLAY -v /tmp/.X11-unix ip-camera bash`
+* `sudo docker run -it --name ip_camera --net=host --user $(id -u):$(id -g) --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" ip-camera bash`
+
+### SSH to container
+### For each container run
+* @Container `echo "root:root" | chpasswd`
+* @Container `service ssh restart` or @Host `sudo docker exec ip_camera service ssh restart`
+### IP Camera app deployment
+* `ssh root@<HOST_IP> -p 8887 -X`
+* `cd /home/People-Counting-in-Real-Time-master`
+* `python3 Run.py --prototxt mobilenet_ssd/MobileNetSSD_deploy.prototxt --model mobilenet_ssd/MobileNetSSD_deploy.caffemodel`
