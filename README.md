@@ -56,7 +56,8 @@
 ### Run
 * `sudo docker run -d -p 5901:5901 -p 6901:6901 consol/ubuntu-xfce-vnc`
 * `sudo docker run -it --name ip_camera --net=host -e DISPLAY -v /tmp/.X11-unix ip-camera bash`
-* `sudo docker run -it --name ip_camera --net=host --user $(id -u):$(id -g) --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" ip-camera bash`
+* `sudo docker run -it --name ip_camera --user $(id root -u):$(id root -g) -p 5901:5901 -p 6901:6901 consol/ubuntu-xfce-vnc bash`
+* `sudo docker run -it --name ip_camera --net=host --user $(id root -u):$(id root -g) --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" ip-camera bash`
 
 ### SSH to container
 ### For each container run
