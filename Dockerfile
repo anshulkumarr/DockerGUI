@@ -4,7 +4,7 @@
 FROM consol/ubuntu-xfce-vnc
 USER root
 ENV HOME /headless
-WORKDIR /root
+#WORKDIR /root
 RUN apt update
 RUN apt -y install --fix-missing
 RUN apt -y install --fix-missing nano cmake openssh-server
@@ -14,13 +14,11 @@ RUN apt -y purge python2.7 python3.5
 RUN apt -y autoremove
 ################  Python & Modules Install ###########
 RUN apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
-RUN wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
-RUN ls
+COPY Python-3.7.4.tgz /headless/Python-3.7.4.tgz
+#RUN wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 RUN tar xzf Python-3.7.4.tgz
-WORKDIR "/root/Python-3.7.4"
-RUN ./configure; make; make install
-WORKDIR /root
-COPY People-Counting-in-Real-Time-master /home/People-Counting-in-Real-Time-master
+RUN cd Python-3.7.4; ./configure; make; make install
+COPY People-Counting-in-Real-Time-master /headless/People-Counting-in-Real-Time-master
 #RUN pip3.7 cache purge
 RUN pip3.7 install --upgrade pip setuptools wheel
 RUN pip3.7 install --no-cache-dir argparse		#1.4.0
@@ -30,7 +28,7 @@ RUN pip3.7 install --no-cache-dir opencv-python	#4.6.0.66
 RUN pip3.7 install --no-cache-dir scipy			#1.7.3
 RUN pip3.7 install --no-cache-dir imutils		#0.5.4
 RUN pip3.7 install --no-cache-dir dlib			#19.24.0
-#RUN pip3.10 install --no-cache-dir -r /home/People-Counting-in-Real-Time-master/requirements.txt
+#RUN pip3.10 install --no-cache-dir -r /headless/People-Counting-in-Real-Time-master/requirements.txt
 ################  Debug Tools Install ###########
 RUN apt -y install --no-install-recommends psutils
 #COPY forDate.sh /home/forDate.sh
@@ -49,8 +47,9 @@ RUN apt -y install --fix-missing xterm
 RUN echo "Change This String to Push Local/Host Changes to Containers"
 COPY sshd_config /etc/ssh/sshd_config
 #RUN service ssh restart
-COPY People-Counting-in-Real-Time-master /home/People-Counting-in-Real-Time-master
+COPY People-Counting-in-Real-Time-master /headless/People-Counting-in-Real-Time-master
 ##########################################
+COPY startPeopleCount.sh /headless/startPeopleCount.sh
 RUN echo "root:root" | chpasswd
 #SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN echo "root:root" > /etc/ssh/ssh
