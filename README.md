@@ -1,10 +1,12 @@
 ## Running Inference
 # How to run IP camera on mobile
-- Install Termux on your android mobile to see IP configurations, run the command:
+- Download and Install Termux on your android mobile to see IP configurations, run the command:
+- Download link: https://play.google.com/store/apps/details?id=com.termux&hl=en&gl=US
 ```
 ifconfig
 ```
 - Download and install IPWebcam application to use it as an IP camera
+- Download link: https://play.google.com/store/apps/details?id=com.pas.webcam&hl=en&gl=US&pli=1
 - After opening IPWebcam application, turn on 'Start Server'
 
 # If you want to run the application on local machine, run through following commands:
