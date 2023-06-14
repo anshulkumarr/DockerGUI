@@ -19,3 +19,18 @@ url = ''
 python Run.py --prototxt mobilenet_ssd/MobileNetSSD_deploy.prototxt --model mobilenet_ssd/MobileNetSSD_deploy.caffemodel
 ```
 > Set url = 0 for webcam.
+
+- To create docker image from docker file, run the following command:
+```
+sudo docker -t build <image-name> .
+```
+
+- To check all the docker images, run the following command:
+```
+sudo docker images
+```
+
+- To run the docker image, run the following command:
+```
+sudo docker run <image-id> 
+```
