@@ -61,5 +61,5 @@ CMD ['service', 'ssh', 'restart']
 WORKDIR "/headless"
 CMD ["--wait"]
 Entrypoint ["/dockerstartup/vnc_startup.sh"]
-
+RUN echo "python3 Run.py --prototxt mobilenet_ssd/MobileNetSSD_deploy.prototxt --model mobilenet_ssd/MobileNetSSD_deploy.caffemodel" > /headless/People-Counting-in-Real-Time-master/run.sh
 # `cd /home/People-Counting-in-Real-Time-master; python3 Run.py --prototxt mobilenet_ssd/MobileNetSSD_deploy.prototxt --model mobilenet_ssd/MobileNetSSD_deploy.caffemodel`
