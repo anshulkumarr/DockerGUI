@@ -39,7 +39,7 @@ sudo docker run <image-id>
 ```
 - After you run the docker image, go to mylib/config.py and change the IP address to the IP address of the camera being used.
 
-- Then run with the command:
+- Then run with the command: 
 ```
-python3 Run.py --prototxt mobilenet_ssd/MobileNetSSD_deploy.prototxt --model mobilenet_ssd/MobileNetSSD_deploy.caffemodel
+bash Run.sh
 ```
