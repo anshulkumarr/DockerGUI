@@ -20,9 +20,9 @@ COPY People-Counting-in-Real-Time-master /headless/People-Counting-in-Real-Time-
 #RUN pip3.7 cache purge
 RUN pip3.7 install --upgrade pip setuptools wheel
 RUN pip3.7 install --no-cache-dir argparse		#1.4.0
-RUN pip3.7 install --no-cache-dir schedule		#1.1.0
+RUN pip3.7 install --no-cache-dir schedule		#1.2.0
 RUN pip3.7 install --no-cache-dir numpy			#1.21.6
-RUN pip3.7 install --no-cache-dir opencv-python	#4.6.0.66
+RUN pip3.7 install --no-cache-dir opencv-python	#4.7.0.72
 RUN pip3.7 install --no-cache-dir scipy			#1.7.3
 RUN pip3.7 install --no-cache-dir imutils		#0.5.4
 #RUN pip3.7 install --no-cache-dir dlib			#19.24.0
